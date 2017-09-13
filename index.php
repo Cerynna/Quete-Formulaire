@@ -107,23 +107,23 @@ else {
 <div class="formulaire">
     <form action="index.php?verif" method="post">
         <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="user_name" value="<?php echo (isset($_POST['user_name']) ? $_POST['user_name'] : ""); ?>"/>
+        <input type="text" id="nom" name="user_name" value="<?php echo (isset($_POST['user_name']) ? $_POST['user_name'] : ""); ?>" required />
 
         <label for="phone">n° téléphone : </label>
-        <input type="tel" id="phone" name="user_phone" value="<?php echo (isset($_POST['user_phone']) ? $_POST['user_phone'] : ""); ?>"/>
+        <input type="tel" id="phone" name="user_phone" value="<?php echo (isset($_POST['user_phone']) ? $_POST['user_phone'] : ""); ?>" required pattern="/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/"" />
 
         <label for="courriel">Courriel :</label>
-        <input type="text" id="courriel" name="user_email" value="<?php echo (isset($_POST['user_email']) ? $_POST['user_email'] : ""); ?>"/>
+        <input type="email" id="courriel" name="user_email" value="<?php echo (isset($_POST['user_email']) ? $_POST['user_email'] : ""); ?>" required />
 
         <label for="thematique">Quel est votre thématique :</label>
-        <select id="thematique" name="user_thematique">
+        <select id="thematique" name="user_thematique" required >
             <option value="prob" <?php echo ((isset($_POST['user_thematique']) AND $_POST['user_thematique'] === 'prob') ? "selected" : ""); ?>    >Problème avec le Site</option>
             <option value="quest" <?php echo ((isset($_POST['user_thematique']) AND $_POST['user_thematique'] === 'quest') ? "selected" : ""); ?> >Question en rapport avec le site</option>
             <option value="other" <?php echo ((isset($_POST['user_thematique']) AND $_POST['user_thematique'] === 'other') ? "selected" : ""); ?> >Autre</option>
         </select>
 
         <label for="message">Message :</label>
-        <textarea id="message" name="user_message"><?php echo (isset($_POST['user_message']) ? $_POST['user_message'] : ""); ?></textarea>
+        <textarea id="message" name="user_message" required ><?php echo (isset($_POST['user_message']) ? $_POST['user_message'] : ""); ?></textarea>
 
         <button type="submit">Envoyer votre message</button>
     </form>
